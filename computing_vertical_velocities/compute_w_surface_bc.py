@@ -7,8 +7,8 @@ Differences from compute_w.py:
     as 'fixed' (newer xinvert versions reject it). With fixed BCs the top and bottom rows of the solution
     keep the values of the initial guess (icbc), so writing w_top into the 15 m row of icbc imposes
     w(15 m) = w_top. The repo uses w_top = 0.
-  - N2 <= 0 is replaced by min|N2| (the repo has N2.where(N2 < 0, ...), which on these files replaces all
-    positive N2 instead). With this and the 700 m extension, w_top = 0 reproduces the vertical_velocity
+  - N2 <= 0 is replaced by min|N2| (as in compute_w.py since the GRL revision; v0.0.0-alpha had
+    N2.where(N2 < 0, ...)). With this and the 700 m extension, w_top = 0 reproduces the vertical_velocity
     stored in the seasonal files to within 1e-6 (correlation -1: the stored field is -1 x this output).
   - one inversion with icbc instead of two (the first one only served as initial guess).
 

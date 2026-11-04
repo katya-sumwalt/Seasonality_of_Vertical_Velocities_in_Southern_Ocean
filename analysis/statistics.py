@@ -85,10 +85,10 @@ def layer_series(vht, top, bottom):
 
 
 def version_stats(ds, w_stored):
-    '''Statistics of Figures 3, S3 and S9 from one w field (stored sign convention) on dataset ds.'''
+    '''Statistics of Figures 3, S3 and S9 from one w field (stored sign convention, w_up = -w_stored) on dataset ds.'''
     mask = ds.maskprof
-    w_fig = DAY * w_stored * mask                      # stored sign convention, as in the first submission
     w_up = -1 * w_stored
+    w_fig = DAY * w_up * mask                          # positive upward, as in Figure S7
     w_prime = w_up - w_up.mean('distance')
     vht = RCP * (ds.temperature - ds.temperature.mean('distance')) * w_prime
     vht_m = vht * mask

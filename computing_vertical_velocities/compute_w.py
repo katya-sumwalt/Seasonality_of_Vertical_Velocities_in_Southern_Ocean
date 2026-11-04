@@ -121,7 +121,7 @@ def compute_w(subsetted_seal_dataset_distance):
 
     f = subsetted_seal_dataset_distance['f'] 
     N2 = subsetted_seal_dataset_distance['N2']
-    N2 = N2.where(N2<0, np.nanmin(np.abs(N2))) # see compute_w_surface_bc.py for the N2 > 0 version used in the paper
+    N2 = N2.where(N2 > 0, np.nanmin(np.abs(N2))) # replace non-positive N2 by min|N2|
     # N2_flipped = np.flip(N2,0)
     iParams = {
         'BCs'      : ['reflect', 'fixed'],#had as reflect, fixed
