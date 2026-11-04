@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ses-vertical-velocities"
+version = "2.0.0"
+description = "Seasonality of deep-reaching submesoscale vertical velocities and vertical heat transport in the Southern Ocean (Sumwalt & Siegelman, GRL)"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+
+[tool.setuptools]
+py-modules = ["config"]
+packages = ["computing_vertical_velocities", "analysis", "plotting_figures"]
