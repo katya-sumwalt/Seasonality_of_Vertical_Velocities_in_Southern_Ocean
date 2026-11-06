@@ -1,0 +1,18 @@
+name: ses_w
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy=2.5.2
+  - scipy=1.18.1
+  - pandas=3.0.5
+  - xarray=2026.7.0
+  - netcdf4=1.7.4
+  - matplotlib=3.11.1
+  - cartopy=0.25.0
+  - cmocean=3.0.3
+  - gsw=3.6.23
+  - pip
+  - pip:
+      - xinvert==0.3.2
+      - holteandtalley==0.0.3

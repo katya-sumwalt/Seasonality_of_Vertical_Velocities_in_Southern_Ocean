@@ -134,10 +134,3 @@ def apply_mask_to_seal(ds, seal_sel, distance_start, distance_end, depth, thresh
             ds[var].values[:, full_slice_indices] = ds_seal[var].isel(distance=slice(distance_start, distance_end)).values
 
     return ds
-    
-
-
-# ds_test = xr.open_dataset('/Users/kat/Desktop/LS_organized/data/updated_along_track_strain_raw_seal_data.nc')
-# print(ds_test)
-# sliced = slice_dataset_at_ends(ds_test)
-# print(sliced)

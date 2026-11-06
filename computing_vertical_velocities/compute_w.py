@@ -1,13 +1,6 @@
 import xarray as xr
 import numpy as np
-import matplotlib.pyplot as plt
-import gsw
-from xinvert import invert_omega
 from xinvert import FiniteDiff
-import os
-
-import scipy.stats as st
-from matplotlib.ticker import FormatStrFormatter
 from xinvert.apps import __template, __mask_FS, inv_standard2D
 
 
@@ -128,7 +121,7 @@ def compute_w(subsetted_seal_dataset_distance):
 
     f = subsetted_seal_dataset_distance['f'] 
     N2 = subsetted_seal_dataset_distance['N2']
-    N2 = N2.where(N2<0, np.nanmin(np.abs(N2)))
+    N2 = N2.where(N2 > 0, np.nanmin(np.abs(N2))) # replace non-positive N2 by min|N2|
     # N2_flipped = np.flip(N2,0)
     iParams = {
         'BCs'      : ['reflect', 'fixed'],#had as reflect, fixed
